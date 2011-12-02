@@ -3,6 +3,7 @@ import time # We will be using time functions for time-stamping our log file out
 import settings
 from SessionControl import SessionControl
 from MixerControl import MixerControl
+from GlobalControl import GlobalControl
 
 
 """ All of the Framework files are listed below, but we are only using using some of them in this script (the rest are commented out) """
@@ -57,6 +58,7 @@ class PocketDial(ControlSurface):
 		
 		session = SessionControl(self)
 		mixer = MixerControl(self)
+		GlobalControl(self)
 		
 		# bind mixer to session
 		session.component.set_mixer(mixer.component)
