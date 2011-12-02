@@ -12,10 +12,10 @@ class SessionControl():
 		session = self.component
 		session.set_offsets(0, 0) #(track_offset, scene_offset) Sets the initial offset of the "red box" from top left
 		
-		self.song().add_scenes_listener(self._set_scenecount)
-		self.song().add_tracks_listener(self._set_trackcount)
-		self._set_trackcount()
-		self._set_scenecount()
+		#self.song().add_scenes_listener(self._set_scenecount)
+		#self.song().add_tracks_listener(self._set_trackcount)
+		#self._set_trackcount()
+		#self._set_scenecount()
 		
 		# track navigation
 		for cc in [79, 95, 111, 127]:
@@ -55,16 +55,19 @@ class SessionControl():
 														Live.MidiMap.MapMode.relative_two_compliment))
 		
 		
+			
+		
+		
 	
-	def _set_trackcount(self):
-		#self.log_message("Tracks changed " + str(len(self.song().tracks)))
-		#self.log_message("Return-Tracks changed " + str(len(self.song().return_tracks)))
-		self._trackcount = len(self.song().tracks)
-		self._returncount = len(self.song().return_tracks)
-	def _set_scenecount(self):
-		#self.log_message("Scenes changed " + str(len(self.song().scenes)))
-		self._scenecount = len(self.song().scenes)
-		#self.log_message("session.height = %d" % self._session.height())
+#	def _set_trackcount(self):
+#		#self.log_message("Tracks changed " + str(len(self.song().tracks)))
+#		#self.log_message("Return-Tracks changed " + str(len(self.song().return_tracks)))
+#		self._trackcount = len(self.song().tracks)
+#		self._returncount = len(self.song().return_tracks)
+#	def _set_scenecount(self):
+#		#self.log_message("Scenes changed " + str(len(self.song().scenes)))
+#		self._scenecount = len(self.song().scenes)
+#		#self.log_message("session.height = %d" % self._session.height())
 	
 	
 	def _setup_cc_scenelaunch(self, scene_index, encoder):
@@ -109,7 +112,7 @@ class SessionControl():
 			value = value-128
 
 		session = self.component
-		track_offset = min(max(0, session.track_offset()+value), max(0, self._trackcount-6))
+		track_offset = min(max(0, session.track_offset()+value), max(0, len(self.song().tracks)-6))
 		self.control_surface.log_message("track_offset %d" % track_offset)
 		session.set_offsets(track_offset, session.scene_offset())
 
@@ -117,12 +120,12 @@ class SessionControl():
 		if value > 65:
 			value = value-128
 		session = self.component
-		session.set_offsets(session.track_offset(), min(max(0, session.scene_offset()+value), self._scenecount-2))
+		session.set_offsets(session.track_offset(), min(max(0, session.scene_offset()+value), len(self.song().scenes)-2))
 	
 	
 	
 	
 	def disconnect(self):
-		self.song().remove_scenes_listener(self._set_scenecount)
-		self.song().remove_tracks_listener(self._set_trackcount)
-		return None
+		#self.song().remove_scenes_listener(self._set_scenecount)
+		#self.song().remove_tracks_listener(self._set_trackcount)
+		pass
