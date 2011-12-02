@@ -11,11 +11,11 @@ class MixerControl():
 		mixer.set_track_offset(0) #Sets start point for mixer strip (offset from left)
 		#self.song().view.selected_track = mixer.channel_strip(0)._track #set the selected strip to the first track, so that we don't, for example, try to assign a button to arm the master track, which would cause an assertion error
 		
-		track_volume_ccs = [72, 73, 74, 75, 76, 77]
-		track_pan_ccs = [64, 65, 66, 67, 68, 69]
+		track_volume_ccs = range(72, 78) #[72, 73, 74, 75, 76, 77]
+		track_pan_ccs = range(64, 70) #[64, 65, 66, 67, 68, 69]
 		
-		track_send_a_ccs = [80, 81, 82, 83, 84, 85]
-		track_send_b_ccs = [88, 89, 90, 91, 92, 93]
+		track_send_a_ccs = range(88, 94) #[88, 89, 90, 91, 92, 93]
+		track_send_b_ccs = range(80, 86) #[80, 81, 82, 83, 84, 85]
 		for index in range(len(track_volume_ccs)):
 			mixer.channel_strip(index).set_volume_control(EncoderElement(MIDI_CC_TYPE, settings.CHANNEL, track_volume_ccs[index], Live.MidiMap.MapMode.relative_two_compliment))
 			mixer.channel_strip(index).set_pan_control(EncoderElement(MIDI_CC_TYPE, settings.CHANNEL, track_pan_ccs[index], Live.MidiMap.MapMode.relative_two_compliment))

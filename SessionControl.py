@@ -36,7 +36,7 @@ class SessionControl():
 		
 		
 		# Launchpad from Scene 4
-		clip_launch_ccs = ((112, 113, 114, 115, 116, 117), (120, 121, 122, 123, 124, 125))
+		clip_launch_ccs = (range(112, 118), range(120, 126))
 		for scene_index in range(len(clip_launch_ccs)):
 			for track_index in range(len(clip_launch_ccs[scene_index])):
 				self._setup_cc_launchpad(	scene_index, \
