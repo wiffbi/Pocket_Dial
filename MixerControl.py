@@ -24,6 +24,6 @@ class MixerControl():
 			mixer.channel_strip(index).set_send_controls((EncoderElement(MIDI_CC_TYPE, settings.CHANNEL, track_send_a_ccs[index], Live.MidiMap.MapMode.relative_two_compliment), EncoderElement(MIDI_CC_TYPE, settings.CHANNEL, track_send_b_ccs[index], Live.MidiMap.MapMode.relative_two_compliment)))
 		
 		
-		mixer.return_strip(0).set_volume_control(EncoderElement(MIDI_CC_TYPE, settings.CHANNEL, 86, Live.MidiMap.MapMode.relative_two_compliment))
-		mixer.return_strip(1).set_volume_control(EncoderElement(MIDI_CC_TYPE, settings.CHANNEL, 94, Live.MidiMap.MapMode.relative_two_compliment))
+		#mixer.return_strip(0).set_volume_control(EncoderElement(MIDI_CC_TYPE, settings.CHANNEL, 86, Live.MidiMap.MapMode.relative_two_compliment))
+		#mixer.return_strip(1).set_volume_control(EncoderElement(MIDI_CC_TYPE, settings.CHANNEL, 94, Live.MidiMap.MapMode.relative_two_compliment))
 		
