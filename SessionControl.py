@@ -113,7 +113,7 @@ class SessionControl():
 
 		session = self.component
 		track_offset = min(max(0, session.track_offset()+value), max(0, len(self.song().tracks)-6))
-		self.control_surface.log_message("track_offset %d" % track_offset)
+		#self.control_surface.log_message("track_offset %d" % track_offset)
 		session.set_offsets(track_offset, session.scene_offset())
 
 	def _scene_nav(self, value, sender):
