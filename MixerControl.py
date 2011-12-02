@@ -5,7 +5,6 @@ from _Framework.EncoderElement import EncoderElement
 
 class MixerControl():
 	def __init__(self, control_surface):
-		"""Here we set up the global mixer""" #Note that it is possible to have more than one mixer...
 		self.component = MixerComponent(6, 2, with_eqs=False, with_filters=False) #(num_tracks, num_returns, with_eqs, with_filters)
 		mixer = self.component
 		

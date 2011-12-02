@@ -4,7 +4,6 @@ from _Framework.EncoderElement import EncoderElement
 
 class GlobalControl():
 	def __init__(self, control_surface):
-		"""Here we set up the global mixer""" #Note that it is possible to have more than one mixer...
 		self.control_surface = control_surface
 		self.song = control_surface.song
 		self.view = Live.Application.get_application().view
