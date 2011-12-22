@@ -18,7 +18,7 @@ class SessionControl():
 		#self._set_scenecount()
 		
 		# track navigation
-		for cc in [79, 95, 111, 127]:
+		for cc in (79, 95, 127):
 			EncoderElement(	MIDI_CC_TYPE, \
 							settings.CHANNEL, \
 							cc, \
