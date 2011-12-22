@@ -6,7 +6,7 @@ class GlobalControl():
 	def __init__(self, control_surface):
 		self.control_surface = control_surface
 		self.song = control_surface.song
-		self.view = Live.Application.get_application().view
+		self.view = control_surface.application().view #Live.Application.get_application().view
 		
 		self.is_paused = False
 		
