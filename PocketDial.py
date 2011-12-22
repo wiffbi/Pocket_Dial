@@ -1,5 +1,5 @@
 import Live
-import time # We will be using time functions for time-stamping our log file outputs
+import time
 import settings
 from _Framework.ControlSurface import ControlSurface
 from SessionControl import SessionControl
@@ -40,13 +40,6 @@ class PocketDial(ControlSurface):
 		
 		self._device = device
 		self._track = track
-		
-		""" Here is some Live API stuff just for fun """
-		app = Live.Application.get_application() # get a handle to the App
-		maj = app.get_major_version() # get the major version from the App
-		min = app.get_minor_version() # get the minor version from the App
-		bug = app.get_bugfix_version() # get the bugfix version from the App
-		self.show_message(str(maj) + "." + str(min) + "." + str(bug)) #put them together and use the ControlSurface show_message method to output version info to console
 		
 		# turn rebuild back on
 		self.set_suppress_rebuild_requests(False)
