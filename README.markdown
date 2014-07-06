@@ -1,7 +1,7 @@
 DOEPFER Pocket Dial as a native Control Surface in Ableton Live
 ===============================================================
 
-Current version is 0.1 – released Dec 22, 2011.
+Current version is 0.3 – released July 6, 2014.
 
 
 What is it?
@@ -13,8 +13,8 @@ It currently supports:
 
 *	Bank 1: Mixer – Volume/Pan
 *	Bank 2: Mixer – Sends A/B
-*	Bank 3: Track & Device Ctrl
-*	Bank 4: „LaunchDial“  clip launcher
+*	Bank 3: Mixer – Sends C/D
+*	Bank 4: Device & Track Ctrl
 
 
 More information can be found on the [project’s homepage.](http://pocketdial.wiffbi.com/)
@@ -26,9 +26,18 @@ Getting started
 
 Download and install the MIDI Remote Script (see Installation).
 
-On the Pocket Dial, select **Preset 111** (rel-two-compl 64-79) by setting the DIP selector to 01110110. Make sure, the Pocket Dial sends on channel 1 – press the CHN-Button and turn encoder 1 to set the global MIDI channel to 1.
+On the Pocket Dial, select **Preset 85** (Reaktor 0-15 Mchn) by setting the DIP selector to 00101010. Make sure, the Pocket Dial sends on channel 1 – press the CHN-Button and turn encoder 1 to set the global MIDI channel to 1.
 
-
+Bank 1-3 control 8 Tracks.
+Bank 4 controls current device and current track:
+- Device (Encoder 1-4, 9-12)
+- Volume (13)
+- Pan (5)
+- Send A (6)
+- Send B (14)
+- Send C (7)
+- Scroll Redbox (8)
+- Selected Track (16)
 
 
 
@@ -42,7 +51,7 @@ see License.txt
 
 System Requirements
 -------------------
-Ableton Live 8
+Ableton Live 8 or 9
 
 
 
@@ -53,7 +62,7 @@ Installation
 Download from [http://pocketdial.wiffbi.com/](http://pocketdial.wiffbi.com/) and unzip.
 
 1.	Stop Live if it is running.
-2.	Add *Pocket_Dial* to Ableton Live's MIDI Remote Scripts
+2.	Add *Pocket_Dial* to Ableton Live’s MIDI Remote Scripts
 
 	The folder `Pocket_Dial` contains the MIDI Remote Script. To install, open Finder and locate the Ableton Live-application, right click on Live and choose *show package contents*. In there go to the folder `Contents/App-Resources/MIDI Remote Scripts/` and move the folder `Pocket_Dial` in there.
 
@@ -70,6 +79,16 @@ Download from [http://pocketdial.wiffbi.com/](http://pocketdial.wiffbi.com/) and
 
 Changelog
 ---------
+
+### Version 0.3 (released July 6, 2014) ###
+
+Updated for Live 9  
+Changed layout  
+Changed PocketDial preset from 111 to 85, because of CC 123 not working in Live 
+
+### Version 0.2 (released Sep 30, 2013) ###
+
+Updated for Live 9
 
 ### Version 0.1 (released Dec 22, 2011) ###
 
