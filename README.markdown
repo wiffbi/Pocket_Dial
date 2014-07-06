@@ -1,7 +1,7 @@
 DOEPFER Pocket Dial as a native Control Surface in Ableton Live
 ===============================================================
 
-Current version is 0.1 – released Dec 22, 2011.
+Current version is 0.2 – released Sept 30, 2013.
 
 
 What is it?
@@ -13,8 +13,8 @@ It currently supports:
 
 *	Bank 1: Mixer – Volume/Pan
 *	Bank 2: Mixer – Sends A/B
-*	Bank 3: Track & Device Ctrl
-*	Bank 4: „LaunchDial“  clip launcher
+*	Bank 2: Mixer – Sends C/D
+*	Bank 3: Device & Track Ctrl
 
 
 More information can be found on the [project’s homepage.](http://pocketdial.wiffbi.com/)
@@ -26,7 +26,7 @@ Getting started
 
 Download and install the MIDI Remote Script (see Installation).
 
-On the Pocket Dial, select **Preset 111** (rel-two-compl 64-79) by setting the DIP selector to 01110110. Make sure, the Pocket Dial sends on channel 1 – press the CHN-Button and turn encoder 1 to set the global MIDI channel to 1.
+On the Pocket Dial, select **Preset 85** (Reaktor 0-15 Mchn) by setting the DIP selector to 00101010. Make sure, the Pocket Dial sends on channel 1 – press the CHN-Button and turn encoder 1 to set the global MIDI channel to 1.
 
 
 
@@ -42,7 +42,7 @@ see License.txt
 
 System Requirements
 -------------------
-Ableton Live 8
+Ableton Live 8 or 9
 
 
 
@@ -70,6 +70,12 @@ Download from [http://pocketdial.wiffbi.com/](http://pocketdial.wiffbi.com/) and
 
 Changelog
 ---------
+
+### Version 0.2 (released Sep 30, 2013) ###
+
+Updated for Live 9
+Changed layout
+Changed PocketDial preset from 111 to 85, because of CC 123 not working in Live 
 
 ### Version 0.1 (released Dec 22, 2011) ###
 

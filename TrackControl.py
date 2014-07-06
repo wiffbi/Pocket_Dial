@@ -1,6 +1,4 @@
-import settings
-from _Framework.InputControlElement import *
-from _Framework.EncoderElement import EncoderElement
+#import settings
 from _Framework.ChannelStripComponent import ChannelStripComponent
 
 class TrackControl():
@@ -10,27 +8,13 @@ class TrackControl():
 		
 		self.component = ChannelStripComponent()
 		self.component.set_track(self.song.view.selected_track)
-		
-		
-		
-		for cc, callback in ((100, self._arm), (108, self._mute_solo), (111, self._track_nav)):
-			EncoderElement(	MIDI_CC_TYPE, \
-							settings.CHANNEL, \
-							cc, \
-							Live.MidiMap.MapMode.relative_two_compliment)\
-				.add_value_listener(callback)
-				
-		#for cc, callback in ((101, "set_pan_control"), (109, "set_volume_control")):
-		self.component.set_pan_control(\
-			EncoderElement(	MIDI_CC_TYPE, \
-							settings.CHANNEL, \
-							101, \
-							Live.MidiMap.MapMode.relative_two_compliment))
-		self.component.set_volume_control(\
-			EncoderElement(	MIDI_CC_TYPE, \
-							settings.CHANNEL, \
-							109, \
-							Live.MidiMap.MapMode.relative_two_compliment))
+
+		self.component.set_volume_control(control_surface.get_encoder(3,12))
+		self.component.set_pan_control(control_surface.get_encoder(3,4))
+		self.component.set_send_controls((control_surface.get_encoder(3,5), control_surface.get_encoder(3,13), control_surface.get_encoder(3,6), control_surface.get_encoder(3,14)))
+
+		# track navigation
+		#control_surface.get_encoder(3,7).add_value_listener(self._track_nav)
 	
 	
 	def _on_selected_track_changed(self):
@@ -58,32 +42,7 @@ class TrackControl():
 			if track == tracks[i]:
 				return tracks[max((0, min(i+d_value, max_tracks-1)))]
 	
-	
-	
-	
-	def _arm(self, value):
-		track = self.song.view.selected_track
-		if track.can_be_armed:
-			if value > 65:
-				track.arm = False
-			else:
-				track.arm = True
-		
-	def _mute_solo(self, value):
-		track = self.song.view.selected_track
-		if value > 65:
-			if track.solo:
-				track.solo = False
-			else:
-				track.mute = True
-		else:
-			if track.mute:
-				track.mute = False
-			else:
-				track.solo = True
-		
 		
 	def _track_nav(self, value):
-		if value > 65:
-			value = value-128
+		value-= 64
 		self.song.view.selected_track = self._get_track_by_delta(self.song.view.selected_track, value)
